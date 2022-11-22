@@ -7,7 +7,7 @@ import pandas as pd
 
 
 groupNameList = ['A','B','C','D','E','F','G','H','I']
-listCount = 1
+listCount = 0
 groupName = 'A'
 url = f"https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_Group_{groupName}"
 
