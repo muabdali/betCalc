@@ -33,24 +33,32 @@ def updateCSV():
 
 """
 def deleteUseless():
-    csv_file = f'Group{groupName}.csv'
-    file = open(csv_file)
-    csvreader = csv.reader(file)
+    groupNameLists = ['A','B','C','D','E','F','G','H','I']
+    groupNames = 'A'
+    listcounts = 0
+    while listcounts != 8:
+        csv_file = f'Group{groupNames}.csv'
+        file = open(csv_file)
+        csvreader = csv.reader(file)
 
 
-    next(csvreader)
+        next(csvreader)
 
-    rows = []
-    for row in csvreader:
-        rows.append(row)
-    
-    file.close
+        rows = []
+        for row in csvreader:
+            rows.append(row)
+        
+        file.close
 
-    with open(csv_file, 'w', encoding='UTF8', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(rows)
+        with open(csv_file, 'w', encoding='UTF8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(rows)
+
+
+        listcounts = listcounts + 1
+        groupNames = groupNameLists[listCount]
+
 """
-
 """
 def dbDeleteUseless():
     df = pd.read_csv(f'Group{groupName}.csv')
@@ -60,6 +68,7 @@ def dbDeleteUseless():
 
 """
 updateCSV()
+
 # reset variables
-groupName = groupNameList[0]
+groupName = 'A'
 listCount = 0
