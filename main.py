@@ -4,8 +4,14 @@ import bs4
 import time
 import pandas as pd
 import csv
-import os
-import shutil
+import csv
+import glob
+
+
+#TEAMS
+
+musTeam = ["","",""]
+
 
 def updateCSV():
     global groupName 
@@ -29,7 +35,7 @@ def updateCSV():
         listCount = listCount + 1
         groupName = groupNameList[listCount]
 
-
+"""
 def moveFile():
     groupManeList = ['A','B','C','D','E','F','G','H','I']
     groupMane = 'A'
@@ -39,7 +45,7 @@ def moveFile():
         listCountt = listCountt + 1
         groupMane = groupManeList[listCount]
 
-
+"""
 """
 def deleteUseless():
     groupNameLists = ['A','B','C','D','E','F','G','H','I']
@@ -83,8 +89,7 @@ updateCSV()
 groupName = 'A'
 listCount = 0
 
-import csv
-import glob
+
 
 #creates combined standings
 def combinedStandings():
@@ -120,5 +125,5 @@ def findPointAny():
 
 #combinedStandings()
 findPointAny()
-moveFile()
+#moveFile()
 
