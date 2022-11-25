@@ -4,19 +4,14 @@ import bs4
 import time
 import pandas as pd
 import csv
-import csv
-import glob
-
-
-#TEAMS
+from Functions.combinedStanding import combinedStandings
+from findPoints import findPointAny
 
 
 musTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","France","Australia","Germany","Spain","Canada","Belgium","Brazil","Cameroon","Portugal","Uruguay"]
 aliTeam = ["Netherlands","Ecuador","Wales","England","Argentina","Saudi Arabia","Denmark","France","Germany","Spain","Belgium","Canada","Brazil","Serbia","Ghana","Portugal"]
 shuaybTeam = ["Netherlands","Ecuador","England","Wales","Argentina","Poland","Australia","Denmark","Germany","Spain","Croatia","Belgium","Brazil","Serbia","Portugal","Uruguay"]
 maxemTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","Denmark","Tunisia","Germany","Spain","Belgium","Canada","Brazil","Switzerland","Portugal","Uruguay"]
-
-
 
 
 
@@ -42,53 +37,6 @@ def updateCSV():
         listCount = listCount + 1
         groupName = groupNameList[listCount]
 
-"""
-def moveFile():
-    groupManeList = ['A','B','C','D','E','F','G','H','I']
-    groupMane = 'A'
-    listCountt = 0
-    while groupMane != 'I':
-        os.rename(f"D:\betCalc-2\Group{groupMane}", f"D:\betCalc-2\Groups\Group{groupMane}")
-        listCountt = listCountt + 1
-        groupMane = groupManeList[listCount]
-
-"""
-"""
-def deleteUseless():
-    groupNameLists = ['A','B','C','D','E','F','G','H','I']
-    groupNames = 'A'
-    listcounts = 0
-    while listcounts != 8:
-        csv_file = f'Group{groupNames}.csv'
-        file = open(csv_file)
-        csvreader = csv.reader(file)
-
-
-        next(csvreader)
-
-        rows = []
-        for row in csvreader:
-            rows.append(row)
-        
-        file.close
-
-        with open(csv_file, 'w', encoding='UTF8', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(rows)
-
-
-        listcounts = listcounts + 1
-        groupNames = groupNameLists[listCount]
-
-"""
-"""
-def dbDeleteUseless():
-    df = pd.read_csv(f'Group{groupName}.csv')
-    df.drop(index=3,inplace=True)
-    df.drop(index=2,inplace=True)
-    print(df)
-
-"""
 updateCSV()
 
 
@@ -96,41 +44,7 @@ updateCSV()
 groupName = 'A'
 listCount = 0
 
-
-
-#creates combined standings
-def combinedStandings():
-    csv_files = {}      # (header as tuple) : csv.writer()
-    header_type_count = 1
-    for filename in glob.glob('*.csv'):
-        with open(filename, newline='') as f_input:
-            csv_input = csv.reader(f_input)
-            header = tuple(next(csv_input))
-            
-            try:
-                csv_files[header].writerows(csv_input)
-            except KeyError:
-                f_output = open(f'combinedStandings{header_type_count:02}.csv', 'w', newline='')
-                header_type_count += 1
-                csv_output = csv.writer(f_output)
-                csv_files[header] = csv_output
-                csv_output.writerow(header)
-                csv_output.writerows(csv_input)
-
-
-
-
-def findPointAny():
-    pointTotal = 0
-    teamName = "Netherlands"
-    with open('combinedStandings01.csv', 'rt') as f:
-     reader = csv.reader(f, delimiter=',')
-     for row in reader:
-          if teamName == row[2]: # if the username shall be on column 3 (-> index 2)
-              print ("is in file")
-
-
+findPointAny(musTeam)
 #combinedStandings()
-findPointAny()
 #moveFile()
 
