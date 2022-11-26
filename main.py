@@ -6,7 +6,7 @@ import csv
 from Functions.combinedStanding import combinedStandings
 
 
-musTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","France","Australia","Germany","Spain","Canada","Belgium","Brazil","Cameroon","Portugal","Uruguay"]
+musTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","France","Australia","Germany","Spain","Belgium","Canada","Brazil","Cameroon","Portugal","Uruguay"]
 aliTeam = ["Netherlands","Ecuador","Wales","England","Argentina","Saudi Arabia","Denmark","France","Germany","Spain","Belgium","Canada","Brazil","Serbia","Ghana","Portugal"]
 shuaybTeam = ["Netherlands","Ecuador","England","Wales","Argentina","Poland","Australia","Denmark","Germany","Spain","Croatia","Belgium","Brazil","Serbia","Portugal","Uruguay"]
 maxemTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","Denmark","Tunisia","Germany","Spain","Belgium","Canada","Brazil","Switzerland","Portugal","Uruguay"]
@@ -34,6 +34,7 @@ def updateCSV():
         df.to_csv(f'Group{groupName}.csv')
         listCount = listCount + 1
         groupName = groupNameList[listCount]
+
 
 updateCSV()
 

@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 
 # teams
-musTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","France","Australia","Germany","Spain","Canada","Belgium","Brazil","Cameroon","Portugal","Uruguay"]
+musTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","France","Australia","Germany","Spain","Belgium","Canada","Brazil","Cameroon","Portugal","Uruguay"]
 aliTeam = ["Netherlands","Ecuador","Wales","England","Argentina","Saudi Arabia","Denmark","France","Germany","Spain","Belgium","Canada","Brazil","Serbia","Ghana","Portugal"]
 shuaybTeam = ["Netherlands","Ecuador","England","Wales","Argentina","Poland","Australia","Denmark","Germany","Spain","Croatia","Belgium","Brazil","Serbia","Portugal","Uruguay"]
 maxemTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","Denmark","Tunisia","Germany","Spain","Belgium","Canada","Brazil","Switzerland","Portugal","Uruguay"]
@@ -56,11 +56,31 @@ def findAllPoints(FUNCTIONCHOSEN):
     findPerfects(chosenTeam=FUNCTIONCHOSEN)
     findSecondPerfects(chosenTeam=FUNCTIONCHOSEN)
 
+# very janky, coudlve done dictionary but too lazy
+def pointsPerTeam():
+    one = 'musTeam'
+    two = 'aliTeam'
+    three = 'shuaybTeam'
+    four = 'maxemTeam'
+    pointCounter = 0
+    for team in allTeams:
+        findAllPoints(team)
+        allTotals = pointTotal + pointFirstPerfectTotal + pointSecondPerfectTotal
+        pointCounter = pointCounter + 1
+        if pointCounter == 1:
+            print(f'{one} - {allTotals}')
+        elif pointCounter == 2:
+            print(f'{two} - {allTotals}')
+        elif pointCounter == 3:
+            print(f'{three} - {allTotals}')            
+        elif pointCounter == 4:
+            print(f'{four} - {allTotals}')
 
-findAllPoints(aliTeam)
 
-allTotals = pointTotal + pointFirstPerfectTotal + pointSecondPerfectTotal
-print(allTotals)
+
+pointsPerTeam()
+
+
 
 
 
