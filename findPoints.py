@@ -7,7 +7,7 @@ aliTeam = ["Netherlands","Ecuador","Wales","England","Argentina","Saudi Arabia",
 shuaybTeam = ["Netherlands","Ecuador","England","Wales","Argentina","Poland","Australia","Denmark","Germany","Spain","Croatia","Belgium","Brazil","Serbia","Portugal","Uruguay"]
 maxemTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","Denmark","Tunisia","Germany","Spain","Belgium","Canada","Brazil","Switzerland","Portugal","Uruguay"]
 
-
+allTeams = [musTeam,aliTeam,shuaybTeam,maxemTeam]
 
 def findPointdF(chosenTeam):
     global pointTotal
@@ -64,3 +64,6 @@ print(allTotals)
 
 
 
+
+
+print("maxemTeam - 22 \n shuaybTeam - 21 \n musTeam 17 \n aliTeam 17")

@@ -5,7 +5,6 @@ import time
 import pandas as pd
 import csv
 from Functions.combinedStanding import combinedStandings
-from findPoints import findPointAny
 
 
 musTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","France","Australia","Germany","Spain","Canada","Belgium","Brazil","Cameroon","Portugal","Uruguay"]
@@ -44,7 +43,8 @@ updateCSV()
 groupName = 'A'
 listCount = 0
 
-findPointAny(musTeam)
-#combinedStandings()
+#findPointAny(musTeam)
+combinedStandings()
 #moveFile()
+
 
