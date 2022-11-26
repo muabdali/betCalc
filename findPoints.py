@@ -65,5 +65,3 @@ print(allTotals)
 
 
 
-
-print("maxemTeam - 22 \n shuaybTeam - 21 \n musTeam 17 \n aliTeam 17")
