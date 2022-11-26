@@ -1,4 +1,3 @@
-
 import requests
 import bs4
 import time
@@ -46,5 +45,3 @@ listCount = 0
 #findPointAny(musTeam)
 combinedStandings()
 #moveFile()
-
-
