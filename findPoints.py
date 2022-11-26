@@ -55,12 +55,30 @@ def findAllPoints(FUNCTIONCHOSEN):
     findPointdF(chosenTeam=FUNCTIONCHOSEN)
     findPerfects(chosenTeam=FUNCTIONCHOSEN)
     findSecondPerfects(chosenTeam=FUNCTIONCHOSEN)
-
-
-findAllPoints(aliTeam)
-
-allTotals = pointTotal + pointFirstPerfectTotal + pointSecondPerfectTotal
-print(allTotals)
+    return
 
 
 
+
+def pointsPerTeam():
+    one = 'musTeam'
+    two = 'aliTeam'
+    three = 'shuaybTeam'
+    four = 'maxemTeam'
+    pointCounter = 0
+    for team in allTeams:
+        findAllPoints(team)
+        allTotals = pointTotal + pointFirstPerfectTotal + pointSecondPerfectTotal
+        pointCounter = pointCounter + 1
+        if pointCounter == 1:
+            print(f'{one} - {allTotals}')
+        elif pointCounter == 2:
+            print(f'{two} - {allTotals}')
+        elif pointCounter == 3:
+            print(f'{three} - {allTotals}')            
+        elif pointCounter == 4:
+            print(f'{four} - {allTotals}')
+
+findAllPoints(maxemTeam)
+
+#pointsPerTeam()
