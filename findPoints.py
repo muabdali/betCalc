@@ -69,14 +69,23 @@ def pointsPerTeam():
         pointCounter = pointCounter + 1
         if pointCounter == 1:
             print(f'{one} - {allTotals}')
+            updateHistory(one, allTotals)
         elif pointCounter == 2:
             print(f'{two} - {allTotals}')
+            updateHistory(two, allTotals)
         elif pointCounter == 3:
-            print(f'{three} - {allTotals}')            
+            print(f'{three} - {allTotals}')  
+            updateHistory(three, allTotals)          
         elif pointCounter == 4:
             print(f'{four} - {allTotals}')
+            with open('STANDINGHISTORY.txt', 'a') as f:
+                f.write(f'{four} - {allTotals}, ')
+                f.write('\n')
 
-
+def updateHistory(team, total):
+        with open('STANDINGHISTORY.txt', 'a') as f:
+            f.write(f'{team} - {total}, ')
+        print("TEST") # to disable above appending
 
 pointsPerTeam()
 

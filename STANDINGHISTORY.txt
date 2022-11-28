@@ -1,0 +1,5 @@
+
+musTeam - 20, aliTeam - 16, shuaybTeam - 21, maxemTeam - 20, 
+musTeam - 14, aliTeam - 11, shuaybTeam - 19, maxemTeam - 14, 
+musTeam - 14, aliTeam - 11, shuaybTeam - 19, maxemTeam - 12, 
+musTeam - 14, aliTeam - 11, shuaybTeam - 19, maxemTeam - 14, 
