@@ -1,5 +1,7 @@
 import csv
 import pandas as pd
+from functools import reduce
+from datetime import date
 
 # teams
 musTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","France","Australia","Germany","Spain","Belgium","Canada","Brazil","Cameroon","Portugal","Uruguay"]
@@ -9,28 +11,31 @@ maxemTeam = ["Netherlands","Senegal","England","Wales","Argentina","Mexico","Den
 
 allTeams = [musTeam,aliTeam,shuaybTeam,maxemTeam]
 
+col_names = ['team_names','t','tr','f','fi','s','se','e','n','ten']
+df = pd.read_csv("combinedStandings01.csv", names=col_names, header=0)
+
+names = df.team_names.to_list()
+print(names)
+# fix needed, remove all (A) from list values
+
 def findPointdF(chosenTeam):
+    global res
     global pointTotal
     pointTotal = 0
     countTotal = 0
-    df = pd.read_csv("combinedStandings01.csv")
-    for country in chosenTeam:
-        if country in df.values:
-            pointTotal = pointTotal + 1
-    print(pointTotal)
-    return pointTotal
+    res = reduce(lambda x, y: x+chosenTeam.count(y), set(names), 0)
+    print(str(res))
 
 
 
 def findPerfects(chosenTeam):
     global pointFirstPerfectTotal
     pointFirstPerfectTotal = 0
-    dfFirst_2 = pd.read_csv("combinedStandings01.csv")
-    FirstTeams = dfFirst_2.iloc[::2]
+    FirstTeams = df.iloc[::2]
     FirstListTeams = chosenTeam[::2]
     for country in FirstListTeams:
         if country in FirstTeams.values:
-            pointFirstPerfectTotal = pointFirstPerfectTotal + 2
+            pointFirstPerfectTotal = pointFirstPerfectTotal + 1
     print(pointFirstPerfectTotal)
     FirstTeams.to_csv('First2ptstandings.csv')
     return pointFirstPerfectTotal
@@ -46,7 +51,7 @@ def findSecondPerfects(chosenTeam):
     SecondListTeams = chosenTeam[1::2]
     for country in SecondListTeams:
         if country in SecondTeams.values:
-            pointSecondPerfectTotal = pointSecondPerfectTotal + 2
+            pointSecondPerfectTotal = pointSecondPerfectTotal + 1
     print(pointSecondPerfectTotal)
     return pointSecondPerfectTotal
 
@@ -65,7 +70,7 @@ def pointsPerTeam():
     pointCounter = 0
     for team in allTeams:
         findAllPoints(team)
-        allTotals = pointTotal + pointFirstPerfectTotal + pointSecondPerfectTotal
+        allTotals = res + pointFirstPerfectTotal + pointSecondPerfectTotal
         pointCounter = pointCounter + 1
         if pointCounter == 1:
             print(f'{one} - {allTotals}')
@@ -79,16 +84,24 @@ def pointsPerTeam():
         elif pointCounter == 4:
             print(f'{four} - {allTotals}')
             with open('STANDINGHISTORY.txt', 'a') as f:
-                f.write(f'{four} - {allTotals}, ')
+                today = date.today()
+                today2 = str(today)
+                f.write(f' {four} - {allTotals}, ')
+                f.write(today2)
                 f.write('\n')
+                f.write('\n')
+                
 
 def updateHistory(team, total):
+
         with open('STANDINGHISTORY.txt', 'a') as f:
-            f.write(f'{team} - {total}, ')
+            f.write(f' {team} - {total}, ')
         print("TEST") # to disable above appending
 
-pointsPerTeam()
 
+
+
+pointsPerTeam()
 
 
 
