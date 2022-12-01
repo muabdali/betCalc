@@ -9,7 +9,7 @@ musTeam - 16,  aliTeam - 10,  shuaybTeam - 14,  maxemTeam - 14, 2022-11-29 - FIN
 
 musTeam - 14,  aliTeam - 9,  shuaybTeam - 12,  maxemTeam - 12, 2022-11-30 , 2:25 PM
 
- musTeam - 14,  aliTeam - 9,  shuaybTeam - 12,  maxemTeam - 12, 2022-11-30
+ musTeam - 17,  aliTeam - 11,  shuaybTeam - 16,  maxemTeam - 15, 2022-11-30 FINAL
 
- musTeam - 14,  aliTeam - 9,  shuaybTeam - 12,  maxemTeam - 12, 2022-11-30
+ musTeam - 18,  aliTeam - 12,  shuaybTeam - 16,  maxemTeam - 16, 2022-12-01 4:04 - FINAL | runtime 0.03 seconds 
 
